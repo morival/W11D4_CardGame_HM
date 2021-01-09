@@ -28,4 +28,8 @@ public class CardTest {
         assertEquals(7, card.getValueFromRank());
     }
 
+    @Test
+    public void sevenOfHeartsHasValueOf7Hearts() {
+        assertEquals("SEVEN OF HEARTS", card.getCardValue());
+    }
 }

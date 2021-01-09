@@ -19,4 +19,12 @@ public class Card {
     public int getValueFromRank() {
         return this.rank.getValue();
     }
+
+    public String getCardValue() {
+        return rank + " OF " + suit;
+    }
+
+    public Card getCard() {
+        return new Card(rank, suit);
+    }
 }
