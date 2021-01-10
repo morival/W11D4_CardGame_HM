@@ -20,11 +20,9 @@ public class Card {
         return this.rank.getValue();
     }
 
-    public String getCardValue() {
+    public String getCardName() {
         return rank + " OF " + suit;
     }
 
-    public Card getCard() {
-        return new Card(rank, suit);
-    }
+
 }

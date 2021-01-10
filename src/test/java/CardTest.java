@@ -30,6 +30,6 @@ public class CardTest {
 
     @Test
     public void sevenOfHeartsHasValueOf7Hearts() {
-        assertEquals("SEVEN OF HEARTS", card.getCardValue());
+        assertEquals("SEVEN OF HEARTS", card.getCardName());
     }
 }

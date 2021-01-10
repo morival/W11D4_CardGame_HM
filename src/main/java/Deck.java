@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck {
+public class Deck extends Game{
     private ArrayList<Card> collection;
+//    private ArrayList<Card> shuffledDeck;
 
     public Deck() {
-        this.collection = new ArrayList<Card>();
+        this.collection = new ArrayList<>();
+//        this.shuffledDeck = new ArrayList<>();
     }
 
     public int cardsCount() {
@@ -17,7 +19,6 @@ public class Deck {
     }
 
     public void populateDeck() {
-        ArrayList<Card> cards = new ArrayList<Card>();
         for (RankType rank : RankType.values()) {
             for(SuitType suit : SuitType.values()) {
                 this.collection.add(new Card(rank, suit));
@@ -29,18 +30,33 @@ public class Deck {
 
     public String getCardByIndex(int element) {
 //        System.out.println(collection.get(element).getCardValue());
-        String index = collection.get(element).getCardValue();
+        String index = collection.get(element).getCardName();
         return index;
     }
 
-    public void removeFirstCard() {
-        int firstCard = 0;
-        this.collection.remove(firstCard);
+    public Card removeFirstCard() {
+        int firstCardIndex = 0;
+        Card removedCard = this.collection.remove(firstCardIndex);
+        return removedCard;
     }
 
     public void shuffleDeck() {
         Collections.shuffle(collection);
     }
 
+    public void getDeckReadyToPlay() {
+        populateDeck();
+        shuffleDeck();
+    }
 
+    public void dealCardToPlayer() {
+        dealCard(removeFirstCard());
+    }
+
+    public void runAGame() {
+        getDeckReadyToPlay();
+        dealCardToPlayer();
+        dealCardToPlayer();
+        System.out.println("Player1: " + getPlayer1CardByIndex(0) + " Player2: " + getPlayer2CardByIndex(0) + "  " + compareValues());
+    }
 }

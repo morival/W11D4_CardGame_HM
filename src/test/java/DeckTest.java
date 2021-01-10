@@ -13,7 +13,7 @@ public class DeckTest {
     @Before
     public void setUp() {
         deck = new Deck();
-        Card sevenOfHearts = new Card(RankType.SEVEN, SuitType.HEARTS);
+        sevenOfHearts = new Card(RankType.SEVEN, SuitType.HEARTS);
     }
 
     @Test
@@ -55,7 +55,33 @@ public class DeckTest {
         deck.populateDeck();
         deck.shuffleDeck();
         String result = deck.getCardByIndex(0);
-        assertNotEquals("ACE OF HEARTS", result);
+        String unexpected = "ACE OF HEARTS";
+        assertNotEquals(unexpected, result);
     }
 
+    @Test
+    public void canGetDeckReadyToPlay() {
+        deck.getDeckReadyToPlay();
+        String result = deck.getCardByIndex(0);
+        String unexpected = "ACE OF HEARTS";
+        assertEquals(52, deck.cardsCount());
+        assertNotEquals(unexpected, result);
+    }
+
+    @Test
+    public void canDealRandomCardToPlayers() {
+        deck.getDeckReadyToPlay();
+        deck.dealCardToPlayer();
+        deck.dealCardToPlayer();
+        String result = deck.getPlayer1CardByIndex(0);
+        String unexpected = "ACE OF HEARTS";
+        assertEquals(1, deck.cardCountPlayer1());
+        assertEquals(1, deck.cardCountPlayer2());
+        assertNotEquals(unexpected, result);
+    }
+
+    @Test
+    public void checkWhoWon() {
+        deck.runAGame();
+    }
 }
