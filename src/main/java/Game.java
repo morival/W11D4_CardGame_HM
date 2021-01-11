@@ -3,12 +3,10 @@ import java.util.ArrayList;
 public class Game {
     private ArrayList<Card> player1;
     private ArrayList<Card> player2;
-    private ArrayList<Card> readyDeck;
 
     public Game() {
         this.player1 = new ArrayList<>();
         this.player2 = new ArrayList<>();
-        this.readyDeck = new ArrayList<>();
     }
 
 

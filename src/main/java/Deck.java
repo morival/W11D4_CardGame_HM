@@ -3,11 +3,9 @@ import java.util.Collections;
 
 public class Deck extends Game{
     private ArrayList<Card> collection;
-//    private ArrayList<Card> shuffledDeck;
 
     public Deck() {
         this.collection = new ArrayList<>();
-//        this.shuffledDeck = new ArrayList<>();
     }
 
     public int cardsCount() {
